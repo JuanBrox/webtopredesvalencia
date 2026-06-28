@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GatoSeguro · Redes de protección para tu gato</title>
+<meta name="description" content="Instalación profesional de redes de protección para gatos en balcones, ventanas y terrazas. Presupuesto en 24h. Materiales de alta calidad. Servicio en toda España.">
+<meta name="keywords" content="redes para gatos, instalación redes gatos, protección gatos balcón, red ventana gatos, seguridad felina">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amber: #D97B3A;
+    --amber-light: #F5C17A;
+    --cream: #FBF7F1;
+    --dark: #1A1410;
+    --mid: #5C4A3A;
+    --light-mid: #A8947E;
+    --white: #FFFFFF;
+    --net-green: #2D5016;
+    --net-green-light: #4A7A28;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 4rem;
+    background: rgba(251,247,241,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(90,74,62,0.12);
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 900;
+    color: var(--dark);
+    letter-spacing: -0.03em;
+  }
+  .logo span { color: var(--amber); }
+  nav ul { list-style: none; display: flex; gap: 2.5rem; }
+  nav a {
+    text-decoration: none; color: var(--mid);
+    font-size: 0.9rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--amber); }
+  .nav-cta {
+    background: var(--amber); color: var(--white) !important;
+    padding: 0.6rem 1.4rem; border-radius: 50px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--dark) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-text {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 5rem 3rem 5rem 4rem;
+  }
+  .hero-eyebrow {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--amber);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 4.5vw, 5rem);
+    font-weight: 900; line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--dark);
+    margin-bottom: 1.8rem;
+  }
+  .hero h1 em {
+    font-style: normal; color: var(--amber);
+    position: relative;
+  }
+  .hero p {
+    font-size: 1.1rem; line-height: 1.7;
+    color: var(--mid); max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--amber); color: var(--white);
+    padding: 1rem 2rem; border-radius: 50px;
+    font-size: 1rem; font-weight: 500;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: all 0.25s; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--dark); transform: translateY(-2px); }
+  .btn-secondary {
+    background: transparent; color: var(--dark);
+    padding: 1rem 2rem; border-radius: 50px;
+    font-size: 1rem; font-weight: 500;
+    text-decoration: none; border: 2px solid var(--dark);
+    transition: all 0.25s; display: inline-block;
+  }
+  .btn-secondary:hover { background: var(--dark); color: var(--white); }
+
+  .hero-visual {
+    position: relative;
+    background: var(--dark);
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-net-bg {
+    position: absolute; inset: 0;
+    opacity: 0.12;
+    background-image:
+      linear-gradient(var(--amber-light) 1px, transparent 1px),
+      linear-gradient(90deg, var(--amber-light) 1px, transparent 1px);
+    background-size: 40px 40px;
+    transform: rotate(-8deg) scale(1.3);
+    animation: netShift 20s ease-in-out infinite alternate;
+  }
+  @keyframes netShift {
+    0% { transform: rotate(-8deg) scale(1.3) translateY(0); }
+    100% { transform: rotate(-8deg) scale(1.3) translateY(-40px); }
+  }
+  .hero-cat {
+    position: relative; z-index: 2;
+    font-size: 12rem; line-height: 1;
+    filter: drop-shadow(0 20px 60px rgba(217,123,58,0.3));
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  .hero-badge {
+    position: absolute; bottom: 3rem; right: 3rem; z-index: 3;
+    background: var(--amber);
+    color: var(--white);
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    font-size: 0.72rem; font-weight: 500; line-height: 1.3;
+    animation: spin 20s linear infinite;
+    padding: 1rem;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* STATS */
+  .stats {
+    background: var(--dark); color: var(--white);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    padding: 3rem 4rem; gap: 2rem;
+  }
+  .stat { text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900; color: var(--amber);
+    display: block;
+  }
+  .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.3rem; }
+
+  /* SERVICIOS */
+  .section { padding: 6rem 4rem; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--amber);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700; line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--dark); margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 1.05rem; color: var(--mid);
+    line-height: 1.7; max-width: 600px; margin-bottom: 3.5rem;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(90,74,62,0.08);
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: var(--amber);
+    transform: scaleX(0); transition: transform 0.3s;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon { font-size: 2.5rem; margin-bottom: 1.2rem; }
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem;
+  }
+  .service-card p { font-size: 0.9rem; color: var(--mid); line-height: 1.7; }
+  .service-price {
+    margin-top: 1.5rem;
+    font-weight: 500; color: var(--amber);
+    font-size: 0.95rem;
+  }
+
+  /* PROCESO */
+  .proceso { background: var(--dark); padding: 6rem 4rem; color: var(--white); }
+  .proceso .section-title { color: var(--white); }
+  .proceso .section-sub { color: rgba(255,255,255,0.6); }
+  .steps {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    position: relative;
+  }
+  .steps::before {
+    content: ''; position: absolute; top: 2.5rem; left: 12%;
+    width: 76%; height: 1px; background: var(--amber); opacity: 0.3;
+  }
+  .step { padding: 0 2rem; text-align: center; }
+  .step-num {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--amber); color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem;
+    position: relative; z-index: 1;
+  }
+  .step h4 { font-weight: 500; margin-bottom: 0.8rem; color: var(--white); }
+  .step p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+  /* TESTIMONIOS */
+  .testimonios { padding: 6rem 4rem; }
+  .testis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
+  .testi {
+    background: var(--white); border-radius: 16px; padding: 2rem;
+    border: 1px solid rgba(90,74,62,0.08);
+  }
+  .testi-stars { color: var(--amber); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+  .testi-text { font-size: 0.95rem; color: var(--mid); line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 0.8rem; }
+  .testi-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--amber); display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .testi-name { font-weight: 500; font-size: 0.9rem; }
+  .testi-location { font-size: 0.8rem; color: var(--light-mid); }
+
+  /* PRESUPUESTO CTA */
+  .cta-section {
+    background: var(--amber);
+    padding: 6rem 4rem;
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: center; gap: 3rem;
+  }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 900; color: var(--white);
+    line-height: 1.1; letter-spacing: -0.02em;
+  }
+  .cta-section p { color: rgba(255,255,255,0.8); margin-top: 1rem; font-size: 1.05rem; }
+  .btn-white {
+    background: var(--white); color: var(--amber);
+    padding: 1.2rem 2.5rem; border-radius: 50px;
+    font-size: 1rem; font-weight: 600;
+    text-decoration: none; white-space: nowrap;
+    transition: all 0.25s; display: inline-block;
+  }
+  .btn-white:hover { background: var(--dark); color: var(--white); }
+
+  /* CONTACTO */
+  .contacto { padding: 6rem 4rem; background: var(--cream); }
+  .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; }
+  .contacto-info h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 1rem; }
+  .contacto-info p { color: var(--mid); line-height: 1.7; margin-bottom: 2rem; }
+  .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-item { display: flex; align-items: center; gap: 1rem; }
+  .contact-icon {
+    width: 44px; height: 44px; background: var(--white);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+    border: 1px solid rgba(90,74,62,0.1);
+  }
+  .contact-detail span { display: block; font-size: 0.75rem; color: var(--light-mid); text-transform: uppercase; letter-spacing: 0.1em; }
+  .contact-detail strong { font-size: 0.95rem; }
+  form { display: flex; flex-direction: column; gap: 1.2rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  input, select, textarea {
+    width: 100%; padding: 0.9rem 1.2rem;
+    border: 1.5px solid rgba(90,74,62,0.15);
+    border-radius: 12px; font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; background: var(--white);
+    color: var(--dark); outline: none;
+    transition: border-color 0.2s;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--amber); }
+  textarea { height: 120px; resize: vertical; }
+  .form-submit {
+    background: var(--amber); color: var(--white);
+    padding: 1rem; border-radius: 50px; border: none;
+    font-size: 1rem; font-weight: 500; cursor: pointer;
+    transition: background 0.25s;
+  }
+  .form-submit:hover { background: var(--dark); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.5);
+    padding: 4rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+  }
+  .footer-brand .logo { color: var(--white); font-size: 1.3rem; margin-bottom: 1rem; }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 280px; }
+  footer h4 { color: var(--white); font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 1.2rem; }
+  footer ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  footer li a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.87rem; transition: color 0.2s; }
+  footer li a:hover { color: var(--amber); }
+  .footer-bottom {
+    background: var(--dark); padding: 1.5rem 4rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex; justify-content: space-between;
+    font-size: 0.8rem; color: rgba(255,255,255,0.3);
+  }
+
+  /* WHATSAPP FLOAT */
+  .wa-float {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
+    background: #25D366; color: var(--white);
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    transition: transform 0.25s;
+  }
+  .wa-float:hover { transform: scale(1.1); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    nav { padding: 1rem 2rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-visual { height: 350px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .steps::before { display: none; }
+    .testis-grid { grid-template-columns: 1fr; }
+    .cta-section { grid-template-columns: 1fr; }
+    .contacto-grid { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr 1fr; }
+    .section, .proceso, .testimonios, .cta-section, .contacto, footer { padding: 4rem 2rem; }
+  }
+  @media (max-width: 640px) {
+    nav ul { display: none; }
+    .hero-text { padding: 3rem 1.5rem; }
+    .stats { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Gato<span>Seguro</span></div>
+  <ul>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proceso">Cómo funciona</a></li>
+    <li><a href="#opiniones">Opiniones</a></li>
+    <li><a href="#contacto" class="nav-cta">Pedir presupuesto</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Instalación profesional · Toda España</p>
+    <h1>Tu gato, <em>libre</em> y seguro en casa</h1>
+    <p>Instalamos redes de protección a medida en ventanas, balcones y terrazas. Materiales de alta resistencia, instalación en 24h y presupuesto sin compromiso.</p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn-primary">Pedir presupuesto gratis</a>
+      <a href="#servicios" class="btn-secondary">Ver servicios</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-net-bg"></div>
+    <div class="hero-cat">🐱</div>
+    <div class="hero-badge">Presupuesto en menos de 24h</div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <span class="stat-num">+2.400</span>
+    <span class="stat-label">Instalaciones realizadas</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">24h</span>
+    <span class="stat-label">Tiempo de presupuesto</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">5★</span>
+    <span class="stat-label">Valoración media Google</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">2 años</span>
+    <span class="stat-label">Garantía en materiales</span>
+  </div>
+</div>
+
+<section class="section" id="servicios">
+  <p class="section-label">Nuestros servicios</p>
+  <h2 class="section-title">Protección a medida<br>para cada espacio</h2>
+  <p class="section-sub">Cada instalación es única. Medimos, fabricamos y montamos la red perfecta para tu hogar, sin obras y sin afectar la estética.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🪟</div>
+      <h3>Ventanas</h3>
+      <p>Redes de monofilamento transparente con marco de aluminio lacado. Tu gato disfruta del aire sin riesgo. Compatible con cualquier tipo de apertura.</p>
+      <p class="service-price">Desde 85 € / ventana</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <h3>Balcones y terrazas</h3>
+      <p>Cerramiento completo con red de polietileno de alta densidad y cable de acero inoxidable perimetral. Solución definitiva para terrazas de cualquier tamaño.</p>
+      <p class="service-price">Desde 150 € / instalación</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌿</div>
+      <h3>Catios y patios</h3>
+      <p>Espacios exteriores habilitados con red, para que tu gato tenga acceso seguro al exterior. Diseño personalizado según el espacio disponible.</p>
+      <p class="service-price">Presupuesto personalizado</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🚪</div>
+      <h3>Puertas y huecos</h3>
+      <p>Protección para escaleras interiores, puertas correderas y huecos de acceso. Soluciones fijas o desmontables según tus necesidades.</p>
+      <p class="service-price">Desde 65 € / puerta</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📦</div>
+      <h3>Kit de autoinstalación</h3>
+      <p>Materiales de calidad profesional con guía paso a paso, soporte telefónico y tutoriales en vídeo. Ideal para las DIY y para pisos de alquiler.</p>
+      <p class="service-price">Desde 45 € / kit</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3>Mantenimiento y reparación</h3>
+      <p>Revisiones anuales y reparación de redes existentes. Garantizamos que la protección esté siempre en perfecto estado.</p>
+      <p class="service-price">Desde 30 € / visita</p>
+    </div>
+  </div>
+</section>
+
+<section class="proceso" id="proceso">
+  <p class="section-label" style="color:var(--amber-light)">Cómo funciona</p>
+  <h2 class="section-title">De tu mensaje<br>a la instalación en 3 días</h2>
+  <p class="section-sub">Un proceso diseñado para que no tengas que preocuparte de nada.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Contacta</h4>
+      <p>Envíanos fotos y medidas por WhatsApp o rellena el formulario. Sin compromiso.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Recibe presupuesto</h4>
+      <p>En menos de 24h tienes el precio detallado. Sin sorpresas ni letra pequeña.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Instalamos</h4>
+      <p>Nuestro instalador certificado acude a tu domicilio. La instalación dura entre 1 y 3 horas.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Disfruta tranquilo</h4>
+      <p>Tu gato ya puede explorar ventanas y balcones con total seguridad. 2 años de garantía.</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonios" id="opiniones">
+  <p class="section-label">Lo que dicen nuestros clientes</p>
+  <h2 class="section-title">Más de 2.400 gatos<br>protegidos en toda España</h2>
+  <div class="testis-grid">
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Llevaba meses con miedo de abrir las ventanas. El instalador fue superamable, tardó dos horas y el resultado es impecable. Apenas se nota la red y Luna lleva semanas disfrutando del aire libre."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👩</div>
+        <div>
+          <div class="testi-name">Carmen R.</div>
+          <div class="testi-location">Madrid</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"El presupuesto llegó en pocas horas con todo detallado. Sin sorpresas al pagar. La red lleva ya dos años y sigue perfecta, aguanta el sol valenciano sin problema."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👨</div>
+        <div>
+          <div class="testi-name">Jordi M.</div>
+          <div class="testi-location">Valencia</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Tres gatos, terraza enorme, balcón y dos ventanas. Lo hicieron todo en una mañana. Profesionalidad total. No dudaría en recomendarlos a cualquier amante de los gatos."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👩</div>
+        <div>
+          <div class="testi-name">Marta S.</div>
+          <div class="testi-location">Barcelona</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div>
+    <h2>Protege a tu gato hoy.<br>El presupuesto es gratis.</h2>
+    <p>Mandanos fotos de tu ventana o balcón y tendrás precio en menos de 24 horas.</p>
+  </div>
+  <a href="#contacto" class="btn-white">Pedir presupuesto gratis →</a>
+</section>
+
+<section class="contacto" id="contacto">
+  <p class="section-label">Contacto</p>
+  <h2 class="section-title">Pide tu presupuesto<br>sin compromiso</h2>
+  <div class="contacto-grid">
+    <div class="contacto-info">
+      <h3>También puedes contactarnos directamente</h3>
+      <p>Nuestro equipo está disponible de lunes a viernes de 9:00 a 19:00h y los sábados de 10:00 a 14:00h.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-detail">
+            <span>Teléfono</span>
+            <strong>+34 600 000 000</strong>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div class="contact-detail">
+            <span>WhatsApp</span>
+            <strong>+34 600 000 000</strong>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div class="contact-detail">
+            <span>Email</span>
+            <strong>hola@gatoseguro.es</strong>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-detail">
+            <span>Cobertura</span>
+            <strong>Madrid, Valencia, Barcelona, Alicante y más</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form>
+      <div class="form-row">
+        <input type="text" placeholder="Nombre" required>
+        <input type="tel" placeholder="Teléfono" required>
+      </div>
+      <input type="email" placeholder="Email">
+      <select>
+        <option value="">¿Qué necesitas proteger?</option>
+        <option>Ventana(s)</option>
+        <option>Balcón o terraza</option>
+        <option>Patio o jardín (catio)</option>
+        <option>Varios espacios</option>
+        <option>Kit de autoinstalación</option>
+      </select>
+      <input type="text" placeholder="Ciudad / Municipio">
+      <textarea placeholder="Cuéntanos más: número de ventanas, medidas aproximadas, fotos que puedas enviar por WhatsApp..."></textarea>
+      <button type="submit" class="form-submit">Solicitar presupuesto gratuito</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <div class="logo">Gato<span>Seguro</span></div>
+    <p>Especialistas en instalación de redes de protección para gatos en balcones, ventanas y terrazas. Más de 2.400 instalaciones en toda España.</p>
+  </div>
+  <div>
+    <h4>Servicios</h4>
+    <ul>
+      <li><a href="#">Redes para ventanas</a></li>
+      <li><a href="#">Redes para balcones</a></li>
+      <li><a href="#">Catios</a></li>
+      <li><a href="#">Kits DIY</a></li>
+      <li><a href="#">Mantenimiento</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Zonas</h4>
+    <ul>
+      <li><a href="#">Madrid</a></li>
+      <li><a href="#">Valencia</a></li>
+      <li><a href="#">Barcelona</a></li>
+      <li><a href="#">Alicante</a></li>
+      <li><a href="#">Toda España</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Empresa</h4>
+    <ul>
+      <li><a href="#">Sobre nosotros</a></li>
+      <li><a href="#">Preguntas frecuentes</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Política de privacidad</a></li>
+      <li><a href="#">Aviso legal</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2025 GatoSeguro · Todos los derechos reservados</span>
+  <span>Hecho con 🧡 para los amantes de los gatos</span>
+</div>
+
+<a href="https://wa.me/34600000000" class="wa-float" title="Contactar por WhatsApp">💬</a>
+
+</body>
+</html>
